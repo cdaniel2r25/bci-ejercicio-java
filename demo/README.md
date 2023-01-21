@@ -8,7 +8,7 @@ Esta es una aplicación Java/Maven/Spring Boot (versión 2.6.2) de muestra que s
 * Clonar este repositorio
 * Asegúrese de estar usando Java 11 y Maven 3.x
 * Puede limpiar el proyecto ```mvn clean```
-* Una vez limpiado con éxito, puede ejecutar el servicio mediante uno de estos dos métodos:
+* Una vez limpiado con éxito, puede ejecutar el servicio mediante este método:
 ```
         mvn spring-boot:run 
 ```
