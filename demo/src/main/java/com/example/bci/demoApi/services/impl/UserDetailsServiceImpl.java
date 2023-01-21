@@ -10,26 +10,20 @@ import org.springframework.stereotype.Service;
 
 import com.example.bci.demoApi.models.User;
 import com.example.bci.demoApi.repository.UserRepository;
-import com.example.bci.demoApi.services.UserDetailsTokenService;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsTokenService, UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	UserRepository userRepository;
 
 	@Override
 	@Transactional
-	public UserDetails loadUserByToken(String token) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String token) throws UsernameNotFoundException {
+
 		User user = userRepository.findByToken(token)
 				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with token: " + token));
 
 		return UserDetailsImpl.build(user);
-	}
-
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
